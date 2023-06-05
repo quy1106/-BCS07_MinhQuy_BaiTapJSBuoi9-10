@@ -57,14 +57,14 @@ function kiemTraPassword(checkInput, idThongBao) {
 }
 //  kiểm tra tên
 function kiemTraHoTen(checkInput, idThongBao) {
-  if (/^[A-Za-z]+$/.test(checkInput)) {
+  if (/^[A-Za-z\s]*$/.test(checkInput)) {
+    document.getElementById(idThongBao).innerHTML = "";
+    return true; 
+  } else {
     document.getElementById(idThongBao).style = "display: inline";
     document.getElementById(idThongBao).innerHTML =
       "Vui lòng nhập đúng Tên!";
     return false;
-  } else {
-    document.getElementById(idThongBao).innerHTML = "";
-    return true;
   }
 
 }
