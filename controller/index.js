@@ -102,21 +102,49 @@ document.getElementById("btnCapNhat").onclick = function capNhatThongTinNhanVien
 
 // Tìm nhân viên
 document.getElementById("btnTimNV").onclick = function timNhanVien (){
-  var chucVu = document.getElementById("searchName").value;
-  if (chucVu == "Giám đốc" || chucVu == "Trưởng phòng" || chucVu == "Nhân viên" ) {
+  var xepLoai = document.getElementById("searchName").value;
+//   if (xepLoai == "Xuất sắc" || xepLoai == "Giỏi" || xepLoai == "Khá" || xepLoai == "Trung bình" ) {
+//     
+//     var arrTimNhanVien =[];
+//   arrTimNhanVien = arrNhanVien.filter(function(e) {
+//     return e.xepLoai() == "Nhân viên " + xepLoai;
+// });
+switch (xepLoai) {
+  case "Xuất sắc":
     document.getElementById("tbTimNV").style.display ="none";
-    var arrTimNhanVien =[];
-  arrTimNhanVien = arrNhanVien.filter(function(e) {
-    return e.chucVu == chucVu;
-});
-  renderGiaoDien(arrTimNhanVien);
-  }else{
-    document.getElementById("tbTimNV").style.display ="inline-block";
-    document.getElementById("tbTimNV").innerHTML = "Trường dữ liệu nhập không chính xác!";
+    arrTimNhanVien = arrNhanVien.filter(function(e) {
+       return e.gioLam >= 192;
+    });
+    break;
+  case "Giỏi":
+    document.getElementById("tbTimNV").style.display ="none";
+    arrTimNhanVien = arrNhanVien.filter(function(e) {
+       return e.gioLam >= 176 && e.gioLam<192;
+    });
+    break;
+  case "Khá":
+    document.getElementById("tbTimNV").style.display ="none";
+    arrTimNhanVien = arrNhanVien.filter(function(e) {
+       return e.gioLam >= 160 && e.gioLam<176;
+    });
+    break;
+  case "Trung bình":
+    document.getElementById("tbTimNV").style.display ="none";
+    arrTimNhanVien = arrNhanVien.filter(function(e) {
+       return e.gioLam <160;
+    });
+    break;
 
+  default:  
+  document.getElementById("tbTimNV").style.display ="inline-block";
+  document.getElementById("tbTimNV").innerHTML = "Trường dữ liệu nhập không chính xác!";
+
+    break;
+  }
+  renderGiaoDien(arrTimNhanVien);
+    
   }
   
-}
 
   
 
