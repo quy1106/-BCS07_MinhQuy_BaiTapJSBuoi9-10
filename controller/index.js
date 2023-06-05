@@ -39,8 +39,16 @@ function renderGiaoDien(arr) {
 }
 
 // Thêm nhân viên
-document.getElementById("btnThem").onclick = function themNhanVien() {
+document.getElementById("btnThem").onclick = function () {
   ganGiaTriChoInput("", "", "", "", "", "", "", "", "");
+  document.getElementById("tbTKNV").style.display = "none";
+  document.getElementById("tbTen").style.display = "none";
+  document.getElementById("tbEmail").style.display = "none";
+  document.getElementById("tbMatKhau").style.display = "none";
+  document.getElementById("tbNgay").style.display = "none";
+  document.getElementById("tbLuongCB").style.display = "none";
+  document.getElementById("tbChucVu").style.display = "none";
+  document.getElementById("tbGiolam").style.display = "none";
   document.getElementById("tknv").readOnly = false;
 
 }

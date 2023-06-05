@@ -57,7 +57,7 @@ function kiemTraPassword(checkInput, idThongBao) {
 }
 //  kiểm tra tên
 function kiemTraHoTen(checkInput, idThongBao) {
-  if (/^[A-Za-z\s]*$/.test(checkInput)) {
+  if (/^[^0-9]+$/.test(checkInput)) {
     document.getElementById(idThongBao).innerHTML = "";
     return true; 
   } else {
